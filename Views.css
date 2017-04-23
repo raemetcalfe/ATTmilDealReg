@@ -1,0 +1,239 @@
+/*  ##########  Page Layout classes ##########  */
+
+
+
+
+/*  Input Layout  */
+/*  For a two-column layout with labels on the left and inputs on the right.  */
+.InputLayout
+{
+	border-collapse: separate;
+	background-color: transparent;
+	width: auto;
+	height: auto;
+	margin: 0;
+	padding: 0;
+}
+.InputLayout table
+{
+	border-collapse: collapse;
+}
+.InputLayout .InputLayout
+{
+	border-collapse: separate;
+}
+
+.InputLayoutRow
+{
+	height: 2.33em;
+}
+.InputLayoutCell
+{
+	padding: 0;
+	text-align: left;
+}
+
+
+/*  Different kinds of cells  */
+.InputLayoutCell_Label
+{
+	padding-top: 0.38em;
+	padding-right: 0.75em;
+	vertical-align: baseline;
+}
+.InputLayoutCell_Input
+{
+	padding-bottom: 0.37em;  /* helps create space between the "rows" */
+	vertical-align: baseline; /* line up with bottom of first line of text */
+}
+.InputLayoutCell_TextValue
+{
+	vertical-align: baseline; /* line up with bottom of first line of text */
+}
+
+.InputLayoutCell_Option { max-width: 1em; }
+.IE6 .InputLayoutCell_Option { width: 1em; overflow: visible; }
+.InputLayoutCell_Option
+{
+	padding-top: 0.12em;
+	vertical-align: baseline; /* line up with bottom of first line of text */
+}
+.InputLayoutCell_OptionLabel
+{
+	padding-top: 0.5em;
+	padding-right: 0.5em; /* in case there are input boxes that follow */
+	vertical-align: baseline; /* line up with bottom of first line of text */
+}
+
+
+/*  Contents of the cells  */
+.InputLayout .TEXTBOX, /* for some reason "select" boxes are 1px thinner than input boxes, with the text closer to the top */
+.InputLayout .TEXTAREA
+{
+	position: relative;
+	ztop: 0.1em;
+}
+.InputLayout .TEXTBOX { width: 15em; }
+.InputLayout .TEXTAREA { width: 12.75em; height: 5em; }
+.InputLayout select   { width: 18em; }
+/* nested form layouts .. smaller boxes overall */
+.InputLayout .InputLayout .TEXTBOX,
+.InputLayout .InputLayout .TEXTAREA { width: 11em; }
+.InputLayout .InputLayout select   { width: 14em; }
+
+/*
+	compensate for large left/right margin on checkboxes/radios that can't be reduced
+	and also for vertical align problems with "baseline"
+*/
+.InputLayout .InputLayoutCell_Option .CHECKBOX,
+.InputLayout .InputLayoutCell_Option .RADIO
+{
+	position: relative;
+	left: -1px;
+	top: 0.25em;
+}
+
+
+
+/*  ======================  DEPRECATED (use InputLayout for all checkbox/radio layouts)  ======================  */
+table.OptionLayout
+/*  For vertically aligning checkboxes or radio buttons w/ text following.  This helps to 
+	align the first line of text with the checkbox even when the text wraps.
+  ex.
+	<table class="OptionLayout someOtherClassForPositioning">
+		<tr>
+			<td class="option">
+				<input type="checkbox" id="" />
+			</td>
+			<td><label for="" id=""></label></td>
+		</tr>
+	</table>
+
+*/
+{
+	width: auto;
+	height: auto;
+	border-collapse: collapse;
+	border: none;
+	background-color: transparent;
+	margin-top: 0.1em;
+	padding: 0;
+	vertical-align: baseline;
+}
+table.OptionLayout > tbody > tr
+{
+	margin: 0;
+	padding: 0;
+}
+table.OptionLayout > tbody > tr > td
+{
+	margin: 0;
+	padding-left: 0.65em;
+	width: auto;
+	vertical-align: baseline;
+}
+table.OptionLayout > tbody > tr > td.Option  /* usually the first cell in each row (checkbox/radio) */
+{
+	padding-left: 0;
+    width: 2em;
+}
+table.OptionLayout td.option .CHECKBOX,
+table.OptionLayout td.option .RADIO
+{
+    width: 1.75em;
+    height: 1.75em;
+    margin: 0;
+    position: relative;
+}
+
+
+div.ScrollingOptionLayout
+/*  Surround an OptionLayout table with this, and you get a scrolling area.
+*/
+{
+	border: 2px groove;
+	overflow: auto;
+	padding: 0 0 0  0.2em;
+}
+div.ScrollingOptionLayout table.OptionLayout
+{
+}
+
+
+
+
+
+
+
+
+/*  invisible tables for layout .. no borders, margins, or padding.
+	FixedLayout works best by using styles on COLs and TRs, not individual cells (TDs.)
+*/
+.vertical_alignment
+{
+	border-collapse: collapse;
+	border: none;
+	background-color: inherit;
+	vertical-align: middle;
+}
+.vertical_alignment tr
+{
+    margin: 0px;
+    padding: 0px;
+}
+.vertical_alignment td
+{
+    margin: 0px;
+    padding: 0px;
+}
+
+
+.SimpleGrid
+{
+	border-collapse: collapse;
+	border: 1px solid #999999;
+}
+.SimpleGrid td
+{
+	border: 1px solid #999999;
+	padding: 0.35em;
+}
+
+/*
+table.FixedLayout,
+table.AutoLayout
+{
+	border-collapse: collapse;
+	border: none;
+	background-color: transparent;
+	margin: 0px;
+}
+table.FixedLayout > col,
+table.AutoLayout > col
+{
+	padding: 0px;
+}
+table.FixedLayout > tr,
+table.AutoLayout > tr
+{
+	padding: 0px;
+}
+table.FixedLayout
+{
+	table-layout: fixed;
+}
+*/
+
+.ImageButton
+{
+	border: none;
+	padding: 0px;
+	background-color: Transparent;
+}
+
+
+.CURSOR_WAIT,
+.CURSOR_WAIT *
+{
+	cursor: wait;
+}
